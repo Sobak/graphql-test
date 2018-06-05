@@ -1,11 +1,5 @@
 <?php
 
-
-use example\Mutation\ExampleMutation;
-use example\Query\ExampleQuery;
-use example\Type\ExampleRelationType;
-use example\Type\ExampleType;
-
 return [
 
     // The prefix for routes
@@ -92,27 +86,13 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
-                'example_query' => ExampleQuery::class,
+                'users' => \App\GraphQL\Query\UserQuery::class,
             ],
-            'mutation' => [
-                'example_mutation'  => ExampleMutation::class,
-            ],
-            'middleware' => []
         ],
     ],
 
-    // The types available in the application. You can then access it from the
-    // facade like this: GraphQL::type('user')
-    //
-    // Example:
-    //
-    // 'types' => [
-    //     'user' => 'App\GraphQL\Type\UserType'
-    // ]
-    //
     'types' => [
-        'example'           => ExampleType::class,
-        'relation_example'  => ExampleRelationType::class,
+        'user' => \App\GraphQL\Type\UserType::class,
     ],
 
     // This callable will be passed the Error object for each errors GraphQL catch.
