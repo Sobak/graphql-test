@@ -29,6 +29,16 @@ class UserType extends GraphQLType
                 'type' => Type::string(),
                 'description' => 'The email of the user',
             ],
+            'foo' => [
+                'type' => Type::string(),
+                'description' => 'Test',
+                'selectable' => false,
+            ],
         ];
+    }
+
+    protected function resolveFooField($root, $args)
+    {
+        return 'bar';
     }
 }
