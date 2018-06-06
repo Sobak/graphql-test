@@ -4,6 +4,7 @@ namespace App\GraphQL\Type;
 
 use App\Model\User as UserModel;
 use GraphQL\Type\Definition\Type;
+use Rebing\GraphQL\Support\Facades\GraphQL;
 use Rebing\GraphQL\Support\Type as GraphQLType;
 
 class UserType extends GraphQLType
@@ -33,6 +34,10 @@ class UserType extends GraphQLType
                 'type' => Type::string(),
                 'description' => 'Test',
                 'selectable' => false,
+            ],
+            'posts' => [
+                'type' => Type::listOf(GraphQL::type('post')),
+                'description' => 'List of posts belonging to that user',
             ],
         ];
     }
