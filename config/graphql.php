@@ -86,12 +86,14 @@ return [
     'schemas' => [
         'default' => [
             'query' => [
+                'posts' => \App\GraphQL\Query\PostQuery::class,
                 'users' => \App\GraphQL\Query\UserQuery::class,
             ],
         ],
     ],
 
     'types' => [
+        'post' => \App\GraphQL\Type\PostType::class,
         'user' => \App\GraphQL\Type\UserType::class,
     ],
 
