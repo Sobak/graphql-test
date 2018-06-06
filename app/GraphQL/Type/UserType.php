@@ -2,7 +2,7 @@
 
 namespace App\GraphQL\Type;
 
-use App\User as UserModel;
+use App\Model\User as UserModel;
 use GraphQL\Type\Definition\Type;
 use Rebing\GraphQL\Support\Type as GraphQLType;
 
