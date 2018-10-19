@@ -10,12 +10,12 @@ use Rebing\GraphQL\Support\Query;
 class UserQuery extends Query
 {
     protected $attributes = [
-        'name' => 'Users query',
+        'name' => 'user',
     ];
 
     public function type()
     {
-        return Type::listOf(GraphQL::type('user'));
+        return GraphQL::type('user');
     }
 
     public function args()
@@ -25,22 +25,11 @@ class UserQuery extends Query
                 'name' => 'id',
                 'type' => Type::int(),
             ],
-            'email' => [
-                'name' => 'email',
-                'type' => Type::string(),
-            ],
         ];
     }
 
     public function resolve($root, $args)
     {
-        if (isset($args['id'])) {
-            return User::where('id', $args['id'])->get();
-        }
-        elseif (isset($args['email'])) {
-            return User::where('email', $args['email'])->get();
-        } else {
-            return User::all();
-        }
+        return User::find($args['id']);
     }
 }
