@@ -89,6 +89,9 @@ return [
                 'posts' => \App\GraphQL\Query\PostQuery::class,
                 'users' => \App\GraphQL\Query\UserQuery::class,
             ],
+            'mutation' => [
+                'addUser' => \App\GraphQL\Mutation\AddUserMutation::class,
+            ],
         ],
     ],
 
